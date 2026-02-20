@@ -1406,7 +1406,7 @@ class SolidLanguageServer(ABC):
                         child["parent"] = package_symbol
 
                 elif os.path.isfile(contained_dir_or_file_abs_path):
-                    with self._open_file_context(contained_dir_or_file_rel_path) as file_data:
+                    with self._open_file_context(contained_dir_or_file_rel_path, open_in_ls=False) as file_data:
                         document_symbols = self.request_document_symbols(contained_dir_or_file_rel_path, file_data)
                         file_root_nodes = document_symbols.root_symbols
 
